@@ -25,7 +25,7 @@ const config: HardhatUserConfig = {
   networks: {
     goerli: {
       url: process.env.POKT_RPC_URL,
-      accounts: [process.env.PRIVATE_KEY, process.env.PRIVATE_KEY1]
+      accounts: [process.env.PRIVATE_KEY, process.env.PRIVATE_KEY1, process.env.PRIVATE_KEY2, process.env.PRIVATE_KEY3, process.env.PRIVATE_KEY4, process.env.PRIVATE_KEY5]
     },
   },
   etherscan: {

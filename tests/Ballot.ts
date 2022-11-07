@@ -5,8 +5,6 @@ import { Ballot } from "../typechain-types";
 
 const PROPOSALS = ["Proposal 1", "Proposal 2", "Proposal 3"];
 
-describe.skip
-
 function convertStringArrayToBytes32(array: string[]) {
   const bytes32Array = [];
   for (let index = 0; index < array.length; index++) {
