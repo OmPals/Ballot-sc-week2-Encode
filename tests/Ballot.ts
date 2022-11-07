@@ -1,9 +1,11 @@
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import { ethers, network } from "hardhat";
 import { Ballot } from "../typechain-types";
 
 const PROPOSALS = ["Proposal 1", "Proposal 2", "Proposal 3"];
+
+describe.skip
 
 function convertStringArrayToBytes32(array: string[]) {
   const bytes32Array = [];
@@ -35,6 +37,8 @@ describe("Ballot", function () {
     accounts = await ethers.getSigners();
     chairperson = accounts[0];
     attacker = accounts[3];
+
+    console.log("ChaineId: ", network.config.chainId);
 
     ballotContract = await ballotFactory.deploy(
       convertStringArrayToBytes32(PROPOSALS)

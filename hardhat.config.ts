@@ -3,6 +3,7 @@ dotenv.config();
 
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomiclabs/hardhat-etherscan";
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   // const accounts = await hre.ethers.getSigners();
@@ -18,15 +19,19 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const config: HardhatUserConfig = {
   solidity: "0.8.17",
   paths: { tests: "tests" },
-
+  // gasReporter: {
+  //   enabled: true
+  // },
   networks: {
     goerli: {
-      url: process.env.GOERLI_RPC_URL,
-      accounts: [process.env.PRIVATE_KEY]
+      url: process.env.POKT_RPC_URL,
+      accounts: [process.env.PRIVATE_KEY, process.env.PRIVATE_KEY1]
     },
   },
-  Etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY
+  etherscan: {
+    apiKey: {
+      goerli: process.env.ETHERSCAN_API_KEY
+    }
   }
 };
 
